@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Smooth continuous scroll - seamless infinite marquee */
+@keyframes smoothScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+/* Wrapper contains the scrolling content */
+.scrolling-wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Main scroll behavior */
+.scrolling-content {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: smoothScroll 20s linear infinite;
+  -webkit-text-stroke: 2px #000;
+  color: transparent;
+  will-change: transform;
+}
+
+/* Pause entire animation on hover */
+.scrolling-wrapper:hover .scrolling-content {
+  animation-play-state: paused;
+}
+
+/* Fill color only where mouse hovers */
+.scrolling-content span {
+  -webkit-text-stroke: 2px #000;
+  color: transparent;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.scrolling-content span:hover {
+  -webkit-text-stroke: 0;
+  color: #000000;
+  transition: all 0.4s ease-in-out;
+}
